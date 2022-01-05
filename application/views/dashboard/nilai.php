@@ -127,7 +127,7 @@
         $('select').on('change', function() {
             var tahun = this.value;
             var idsiswa = $("#idsiswa").val();
-            window.location.href = "<?php echo base_url() ?>nilai/nilai?idsiswa=" + idsiswa + "&tahun=" + tahun;
+            window.location.href = "<?php echo base_url() ?>Dashboard/nilai?idsiswa=" + idsiswa + "&tahun=" + tahun;
         });
     </script>
 </div>

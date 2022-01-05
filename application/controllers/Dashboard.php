@@ -173,7 +173,7 @@ class Dashboard extends CI_Controller
     public function nilai()
     {
         $id = tampilSession('id_siswa');
-        $tahun = isset(tampilSession('waktu')) ? tampilSession('waktu') : date('Y');
+        $tahun = isset($_GET['tahun']) ? $_GET['tahun'] : date('Y');
         $data['judul'] = 'Nilai';
         //ngambil data siswa
         $data['col'] = $this->db->get_where('tabel_siswa', ['id_user' => tampilSession('id_user')])->row_array();
