@@ -25,6 +25,32 @@ class Siswa extends CI_Controller
         $this->load->view('siswa/index', $index);
         $this->load->view('templates/footer');
     }
+    public function status()
+    {
+        $id = $this->uri->segment('4');
+        $status = $this->uri->segment('3');
+        $data = ['sudah_bayar' => $status];
+        $where = ['id_siswa' => $id];
+
+        $this->MyDB->update_dt($data, $where, 'tabel_siswa');
+        $this->global_model->notifikasi("Berhasil", 'Status Siswa Berhasil di Ubah', 'success');
+        redirect(base_url('siswa/belum_bayar'));
+    }
+    public function belum_bayar()
+    {
+        $header['judul'] = 'Data siswa';
+
+        $usia = isset($_GET['usia']) ? $_GET['usia'] : 0;
+
+
+        $index['list_usia'] = $this->Siswa_model->usia_belum_bayar();
+        $index['siswa'] = $this->Siswa_model->belum_bayar($usia);
+        $index['select_usia'] = $usia;
+
+        $this->load->view('templates/header', $header);
+        $this->load->view('siswa/belum_bayar', $index);
+        $this->load->view('templates/footer');
+    }
     public function i_siswa()
     {
 

@@ -1,3 +1,7 @@
+<head>
+    <link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap.min.css">
+    <script src="<?= base_url() ?>assets/bootstrap.bundle.min.js"></script>
+</head>
 <div class="container">
     <div class="card mt-3">
         <div class="card-body">
@@ -12,8 +16,8 @@
                     <form method="post" action="<?php echo base_url('pendaftaran/simpan') ?>" enctype="multipart/form-data">
                         <div class="form-group col-md-6">
                             <div class="form-group col-md-6">
-                                <label>Email</label>
-                                <input required type="text" class="form-control" id="nama" name="email" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                                <label>Password</label>
+                                <input required type="text" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Masukan Password Yang Kuat">
                             </div>
                             <label>Nama</label>
                             <input required type="text" class="form-control" id="nama" name="nama_siswa" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
@@ -24,7 +28,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Asal</label>
-                            <input required type="text" class="form-control" id="asal" name="asal" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <input required type="text" class="form-control" id="asal" name="asal" aria-describedby="emailHelp" placeholder="Masukan Asal Kelahiran Anda">
                         </div>
                         <div class="form-group col-md-2">
                             <label>Tinggi Badan</label>
@@ -61,11 +65,11 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Nama Orang Tua</label>
-                            <input required type="text" class="form-control" id="nama_ortu" name="nama_ortu" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <input required type="text" class="form-control" id="nama_ortu" name="nama_ortu" aria-describedby="emailHelp" placeholder="Masukan Nama Orang Tua Anda">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Pekerjaan Orang Tua</label>
-                            <input required type="text" class="form-control" id="pekerjaan_ortu" name="pekerjaan_ortu" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <input required type="text" class="form-control" id="pekerjaan_ortu" name="pekerjaan_ortu" aria-describedby="emailHelp" placeholder="Masukan Pekerjaan Orang Tua Anda">
                         </div>
                         <div class="form-group col-md-6">
                             <label>Alamat Orang Tua</label>
@@ -73,12 +77,12 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label>Pas Foto Siswa</label>
-                            <input required type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <input required type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" placeholder="Upload Foto Anda">
                         </div>
 
                         <div class="form-group col-md-6">
                             <label>Upload Bukti Pembayaran</label>
-                            <input required type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>

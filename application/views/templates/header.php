@@ -79,8 +79,8 @@
                   </li>
                   <li><a><i class="fa fa-table"></i>Data Siswa <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href='<?= base_url() ?>siswa/index'>Sudah Bayar</a></li>
-                      <li><a href="index2.html">Belum Bayar</a></li>
+                      <li><a href='<?= base_url('siswa/index') ?>'>Sudah Bayar</a></li>
+                      <li><a href="<?= base_url('siswa/belum_bayar'); ?>">Belum Bayar</a></li>
                     </ul>
                   </li>
                   <li><a href='<?= base_url() ?>pelatih/index'><i class="fa fa-table"></i>Data Pelatih</a>

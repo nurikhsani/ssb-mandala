@@ -11,10 +11,9 @@ class Pendaftaran extends CI_Controller
     public function index()
     {
         $data['judul'] = 'Pendaftaran';
-
-        $this->load->view('templates/header', $data);
-        $this->load->view('pendaftaran/index');
-        $this->load->view('templates/footer');
+        $this->load->view('templateDepan/navbar');
+        $this->load->view('pendaftaran/index', $data);
+        $this->load->view('templateDepan/footer');
     }
 
     public function berhasil($id)
@@ -29,9 +28,14 @@ class Pendaftaran extends CI_Controller
 
     function simpan()
     {
+        $digit12 = date('y');
+        $thn_lahir = $this->input->post('tanggal_lahir');
+        $digit34  = date('y', strtotime($thn_lahir));
+        $digit_akhir = $this->db->query('SELECT max(id_siswa) as jml FROM tabel_siswa')->row_array()['jml'];
+        $username = $digit12 . $digit34 . $digit_akhir;
         date_default_timezone_set("Asia/Bangkok");
-        $user['email'] = $this->input->post('email');
-        $user['password'] = $user['email'];
+        $user['password'] = $this->input->post('password');
+        $user['username'] = $username;
         $user['role'] = '2';
         $siswa['nama_siswa'] = $this->input->post('nama_siswa');
         $siswa['tanggal_lahir'] = $this->input->post('tanggal_lahir');

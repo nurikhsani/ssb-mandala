@@ -20,7 +20,7 @@
         </div>
         <div class="x_content">
 
-            <div class="col-sm-4">
+            <div class="col-sm-4 mb-4">
                 <select class="form-control" id="cari_tahun" name="cari_tahun">
                     <option value="0">-Pilih-</option>
                     <?php foreach ($list_tahun as $row) { ?>
@@ -31,7 +31,7 @@
             <input type="hidden" id="idsiswa" value="<?php echo $col['id_siswa']; ?>" />
 
             <div class="table-responsive mt-4">
-                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead class=" thead-dark">
                         <tr>
                             <th scope="col">#</th>
@@ -53,7 +53,7 @@
                         } ?>
                     </tbody>
                 </table>
-                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead class=" thead-dark">
                         <tr>
                             <th scope="col">#</th>
@@ -75,7 +75,7 @@
                         } ?>
                     </tbody>
                 </table>
-                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead class=" thead-dark">
                         <tr>
                             <th scope="col">#</th>
@@ -97,7 +97,7 @@
                         } ?>
                     </tbody>
                 </table>
-                <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                     <thead class=" thead-dark">
                         <tr>
                             <th scope="col">#</th>
