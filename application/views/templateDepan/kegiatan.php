@@ -7,7 +7,7 @@
                 <div class="card card-cover h-100 overflow-hidden text-white bg-dark rounded-5 shadow-lg" style="background-image: url('<?= base_url("foto kegiatan/" . $t['foto_kegiatan']) ?>');">
                     <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
                         <h2 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">
-                            <a href="<?= base_url("Ssb/show_kegiatan/" . $t['id_kegiatan']) ?>" class="text-decoration-none text-white">
+                            <a href="<?= base_url("Ssb/show_post/" . $t['id_kegiatan']) ?>" class="text-decoration-none text-white">
                                 <?= $t['nama_kegiatan'] ?>
                             </a>
                         </h2>

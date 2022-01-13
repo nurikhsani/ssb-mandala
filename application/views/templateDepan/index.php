@@ -12,6 +12,11 @@
     <link href="<?= base_url('assets/') ?>css/slg.css" rel="stylesheet">
     <link href="<?= base_url('assets/') ?>css/carousel.css" rel="stylesheet">
     <link href="<?= base_url('assets/') ?>css/features.css" rel="stylesheet">
+
+    <script src="<?= base_url() ?>vendors/jquery/dist/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/build/toastr.min.css">
+    <script src="<?= base_url() ?>assets/toastr/build/toastr.min.js"></script>
     <title>Document</title>
 </head>
 

@@ -15,10 +15,6 @@
                 <div class="col-md-12">
                     <form method="post" action="<?php echo base_url('pendaftaran/simpan') ?>" enctype="multipart/form-data">
                         <div class="form-group col-md-6">
-                            <div class="form-group col-md-6">
-                                <label>Password</label>
-                                <input required type="text" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Masukan Password Yang Kuat">
-                            </div>
                             <label>Nama</label>
                             <input required type="text" class="form-control" id="nama" name="nama_siswa" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
                         </div>
@@ -79,7 +75,10 @@
                             <label>Pas Foto Siswa</label>
                             <input required type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" placeholder="Upload Foto Anda">
                         </div>
-
+                        <div class="form-group col-md-6">
+                            <label>Password</label>
+                            <input required type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Masukan Password Yang Kuat">
+                        </div>
                         <div class="form-group col-md-6">
                             <label>Upload Bukti Pembayaran</label>
                             <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">

@@ -18,12 +18,11 @@ class Pendaftaran extends CI_Controller
 
     public function berhasil($id)
     {
-        $header['judul'] = 'Pendaftaran';
+        $data['judul'] = 'Pendaftaran';
         $data['id'] = $id;
-
-        $this->load->view('templates/header', $header);
+        $this->load->view('templateDepan/navbar');
         $this->load->view('pendaftaran/berhasil', $data);
-        $this->load->view('templates/footer');
+        $this->load->view('templateDepan/footer');
     }
 
     function simpan()

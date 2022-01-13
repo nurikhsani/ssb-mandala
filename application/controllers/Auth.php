@@ -6,9 +6,9 @@ class Auth extends CI_Controller
 
     public function index()
     {
-        if ($this->session->userdata('user')) {
-            redirect(base_url('Home'));
-        }
+        // if ($this->session->userdata('user')) {
+        //     redirect(base_url('Home'));
+        // }
         $this->form_validation->set_rules('username', 'Username', 'trim|required');
         $this->form_validation->set_rules('password', 'Password', 'trim|required');
 
@@ -33,17 +33,26 @@ class Auth extends CI_Controller
                     $foto = 'user.png';
                     $dashboard = 'home';
                 } else {
-                    $siswa = $this->db->get_where('tabel_siswa', ['id_user' => $user['id_user']])->row_array();
-                    $nama = $siswa['nama_siswa'];
-                    $foto = $siswa['foto'];
-                    $dashboard = 'dashboard';
-                    $posisi = $this->db->get_where('posisi', ['id_posisi' => $siswa['id_posisi']])->row_array();
-                    $_SESSION['posisi'] = $posisi['posisi'];
-                    $_SESSION['usia'] = $siswa['usia'];
-                    $_SESSION['id_siswa'] = $siswa['id_siswa'];
-                    $_SESSION['id_posisi'] = $posisi['id_posisi'];
-                    $tahun = $this->db->get_where('t_nilai', ['id_siswa' => $_SESSION['id_siswa']])->row_array();
-                    $_SESSION['waktu'] = $tahun['waktu'];
+                    $siswa = $this->db->get_where('tabel_siswa', ['id_user' => $user['id_user'], 'sudah_bayar' => '1']);
+                    if ($siswa->num_rows() < 1) {
+                        $this->global_model->notifikasi("Gagal", 'belum bisa login', 'error');
+                        redirect(base_url('Auth'));
+                    } else {
+                        $siswa = $siswa->row_array();
+                        $nama = $siswa['nama_siswa'];
+
+                        $foto = $siswa['foto'];
+                        $dashboard = 'dashboard';
+
+                        $posisi = $this->db->get_where('posisi', ['id_posisi' => $siswa['id_posisi']])->row_array();
+                        $_SESSION['posisi'] = $posisi['posisi'];
+                        $_SESSION['usia'] = $siswa['usia'];
+                        $_SESSION['id_siswa'] = $siswa['id_siswa'];
+                        $_SESSION['id_posisi'] = $posisi['id_posisi'];
+
+                        $tahun = $this->db->get_where('t_nilai', ['id_siswa' => $_SESSION['id_siswa']])->row_array();
+                        $_SESSION['waktu'] = $tahun['waktu'];
+                    }
                 }
 
                 $data = [
@@ -56,14 +65,13 @@ class Auth extends CI_Controller
                 $this->session->set_userdata($data);
 
                 $this->global_model->notifikasi("Berhasil", 'Selamat Datang Pengguna', 'success');
-
                 redirect(base_url($dashboard));
             } else {
-                $this->global_model->notifikasi("Gagal", 'Password Salah', 'danger');
+                $this->global_model->notifikasi("Gagal", 'Password Salah', 'error');
                 redirect(base_url('Auth'));
             }
         } else {
-            $this->global_model->notifikasi('Gagal', 'Username Tidak terdaftar', 'danger');
+            $this->global_model->notifikasi('Gagal', 'Username Tidak terdaftar', 'error');
             redirect(base_url('Auth'));
         }
     }
@@ -80,6 +88,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('id_siswa');
         $this->session->unset_userdata('id_posisi');
         $this->session->unset_userdata('waktu');
+        $this->global_model->notifikasi('Berhasil', 'Anda Sudah Logout', 'success');
         redirect(base_url('Ssb'));
     }
 }

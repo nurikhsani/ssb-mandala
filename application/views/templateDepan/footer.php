@@ -7,4 +7,10 @@
             </div>
         </div>
     </div>
+    <?php if (isset($_SESSION['notifikasi'])) { ?>
+        <script type="text/javascript">
+            toastr.options.closeButton = true;
+            toastr.<?= $_SESSION['warna'] ?>('<?= $_SESSION['judul'] ?>', '<?= $_SESSION['pesan'] ?>');
+        </script>
+    <?php } ?>
 </footer>

@@ -19,8 +19,14 @@
     <!-- Animate.css -->
     <link href="<?= base_url() ?>/vendors/animate.css/animate.min.css" rel="stylesheet">
 
+    <script src="<?= base_url() ?>vendors/jquery/dist/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/build/toastr.min.css">
+    <script src="<?= base_url() ?>assets/toastr/build/toastr.min.js"></script>
     <!-- Custom Theme Style -->
     <link href="<?= base_url() ?>/build/css/custom.min.css" rel="stylesheet">
+
+
 </head>
 
 <body class="login">
@@ -63,44 +69,16 @@
                     </form>
                 </section>
             </div>
-
-            <div id="register" class="animate form registration_form">
-                <section class="login_content">
-                    <form>
-                        <h1>Create Account</h1>
-                        <div>
-                            <input type="text" class="form-control" placeholder="Username" required="" />
-                        </div>
-                        <div>
-                            <input type="email" class="form-control" placeholder="Email" required="" />
-                        </div>
-                        <div>
-                            <input type="password" class="form-control" placeholder="Password" required="" />
-                        </div>
-                        <div>
-                            <a class="btn btn-default submit" href="index.html">Submit</a>
-                        </div>
-
-                        <div class="clearfix"></div>
-
-                        <div class="separator">
-                            <p class="change_link">Already a member ?
-                                <a href="#signin" class="to_register"> Log in </a>
-                            </p>
-
-                            <div class="clearfix"></div>
-                            <br />
-
-                            <div>
-                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-            </div>
         </div>
     </div>
+
+    <?php if (isset($_SESSION['notifikasi'])) { ?>
+        <script type="text/javascript">
+            toastr.options.closeButton = true;
+            toastr.<?= $_SESSION['warna'] ?>('<?= $_SESSION['judul'] ?>', '<?= $_SESSION['pesan'] ?>');
+        </script>
+    <?php } ?>
+
 </body>
 
 </html>
