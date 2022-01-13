@@ -28,6 +28,7 @@ class Ssb extends CI_Controller
     {
         $data['judul'] = 'kegiatan';
         $data['file'] = 'show_kegiatan';
+        $data['kegiatan'] = $this->Kegiatan_model->show_posts();
         $data['col'] = $this->db->get_where('t_kegiatan', ['id_kegiatan' => $id])->row_array();
 
         $this->load->view('templateDepan/index', $data);
