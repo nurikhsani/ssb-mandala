@@ -185,4 +185,38 @@ class Dashboard extends CI_Controller
 
         loadView('dashboard/nilai', $data);
     }
+    public function ubah_password()
+    {
+        $id = tampilSession('id_user');
+        $data['judul'] = 'Ubah Password';
+        $data['col'] = $this->db->get_where('user', ['id_user' => $id])->row_array();
+
+        $this->form_validation->set_rules('old_password', 'old_password', 'required|trim');
+        $this->form_validation->set_rules('new_password', 'new_password', 'required|trim|min_length[4]', [
+            'min_length' => 'Password Baru terlalu pendek'
+        ]);
+        $this->form_validation->set_rules('confirm', 'confirm', 'required|trim|matches[new_password]', [
+            'matches' => 'Password Baru tidak sama dengan Konfirmasi Password'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+            loadView('dashboard/ubah_password', $data);
+        } else {
+            $old = md5($this->input->post('old_password'));
+            $new = md5($this->input->post('new_password'));
+            if ($old != $data['col']['password']) {
+                $this->global_model->notifikasi('Gagal', 'Password Lama Salah', 'error');
+            } else {
+                if ($old == $new) {
+                    $this->global_model->notifikasi('Gagal', 'Password baru tidak boleh sama dengan Password Lama!!', 'error');
+                } else {
+                    $this->db->set('password', $new);
+                    $this->db->where('id_user', $id);
+                    $this->db->update('user');
+                    $this->global_model->notifikasi('Berhasil', 'Password berhasil diubah', 'success');
+                }
+            }
+            redirect(base_url("Dashboard/ubah_password"));
+        }
+    }
 }

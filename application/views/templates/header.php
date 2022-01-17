@@ -101,10 +101,13 @@
                   <li><a href='<?= base_url() ?>dashboard/DataDiri'><i class="fa fa-table"></i> Data Diri </a>
                   </li>
                   <li><a href='<?= base_url() ?>dashboard/nilai'><i class="fa fa-table"></i> Data Nilai </a>
-
-                  <?php endif; ?>
-                  <li><a href='<?= base_url() ?>jadwal/index'><i class="fa fa-table"></i> Lihat Situs </a>
                   </li>
+                  <li><a href='<?= base_url() ?>dashboard/ubah_password'><i class="fa fa-table"></i> Ubah Password </a>
+                  </li>
+
+                <?php endif; ?>
+                <li><a href='<?= base_url() ?>jadwal/index'><i class="fa fa-table"></i> Lihat Situs </a>
+                </li>
               </ul>
             </div>
 
