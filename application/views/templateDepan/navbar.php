@@ -12,7 +12,7 @@
                     <a class="nav-link  <?= ($sg == 'posts') ? 'text-secondary' : 'text-white'; ?>" href="<?= base_url('Ssb') ?>">Beranda</a>
                 </li>
                 <li>
-                    <a class="nav-link  <?= ($sg == 'profil') ? 'text-secondary' : 'text-white';; ?>" href="<?= base_url('Desa/profil') ?>">Profil</a>
+                    <a class="nav-link  <?= ($sg == 'profil') ? 'text-secondary' : 'text-white';; ?>" href="<?= base_url('Ssb/profil') ?>">Profil</a>
                 </li>
                 <li>
                     <a class="nav-link  <?= ($sg == 'visimisi') ? 'text-secondary' : 'text-white'; ?>" href="<?= base_url('Desa/visimisi') ?>">Contact Us</a>

@@ -4,7 +4,7 @@ class Siswa_model extends CI_model
 {
     public function getAllSiswa($usia)
     {
-        $query = "SELECT a.*, no_hp, posisi
+        $query = "SELECT a.*, username, posisi
         FROM tabel_siswa a, user b, posisi c 
         WHERE sudah_bayar=1 AND a.id_user=b.id_user AND a.id_posisi=c.id_posisi ";
         if ($usia != 0) {
@@ -15,7 +15,7 @@ class Siswa_model extends CI_model
     }
     public function belum_bayar($usia)
     {
-        $query = "SELECT a.*, no_hp, posisi
+        $query = "SELECT a.*, username, posisi
         FROM tabel_siswa a, user b, posisi c 
         WHERE sudah_bayar=0 AND a.id_user=b.id_user AND a.id_posisi=c.id_posisi ";
         if ($usia != 0) {

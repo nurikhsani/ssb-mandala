@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <title><?= $title ?></title>
+    <title><?= $judul; ?></title>
     <link rel="icon" type="image/png" sizes="16x16" href="#">
     <!-- Custom styles for this template -->
     <link href="<?= base_url('assets/') ?>css/slg.css" rel="stylesheet">
@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="<?= base_url() ?>assets/toastr/build/toastr.min.css">
     <script src="<?= base_url() ?>assets/toastr/build/toastr.min.js"></script>
-    <title>Document</title>
 </head>
 
 <body class="pt-0">

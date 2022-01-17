@@ -46,6 +46,7 @@ class Pendaftaran extends CI_Controller
         $siswa['nama_ortu'] = $this->input->post('nama_ortu');
         $siswa['pekerjaan_ortu'] = $this->input->post('pekerjaan_ortu');
         $siswa['alamat_ortu'] = $this->input->post('alamat_ortu');
+        $siswa['no_hp'] = $this->input->post('no_hp');
         $siswa['usia'] = date('Y') - date("Y", strtotime($siswa['tanggal_lahir']));
 
         $namafile = "";
@@ -84,7 +85,6 @@ class Pendaftaran extends CI_Controller
         }
         $siswa['tanggal_daftar'] = date('Y-m-d h:i:s');
         $siswa['foto'] = $namafile;
-        $siswa['bukti_pembayaran'] = $buktitf;
 
         $id = $this->Pendaftaran_model->simpan($siswa, $user);
         redirect('pendaftaran/berhasil/' . $id);

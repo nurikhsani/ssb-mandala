@@ -119,12 +119,6 @@
                         <input required type="file" class="form-control" id="foto" name="foto" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
                     </div>
                 </div>
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align">Upload Bukti Pembayaran</label>
-                    <div class="col-md-6 col-sm-6">
-                        <input required type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
-                    </div>
-                </div>
                 <div class="ln_solid"></div>
                 <div class="item form-group">
                     <div class="col-md-6 col-sm-6 offset-md-3">

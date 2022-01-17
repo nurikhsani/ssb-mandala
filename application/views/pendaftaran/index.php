@@ -80,11 +80,12 @@
                             <input required type="password" class="form-control" id="password" name="password" aria-describedby="emailHelp" placeholder="Masukan Password Yang Kuat">
                         </div>
                         <div class="form-group col-md-6">
-                            <label>Upload Bukti Pembayaran</label>
-                            <input type="file" class="form-control" id="bukti_pembayaran" name="bukti_pembayaran" aria-describedby="emailHelp" placeholder="Masukan nama lengkap">
+                            <label>No HP</label>
+                            <input required type="text" class="form-control" id="no_hp" name="no_hp" aria-describedby="emailHelp" placeholder="Masukan Pekerjaan Orang Tua Anda">
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                        <button type="reset" class="btn btn-primary mt-3">Reset</button>
                     </form>
                 </div>
             </div>

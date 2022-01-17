@@ -121,7 +121,7 @@ class Siswa extends CI_Controller
 
             $user = [
                 'username' => $username,
-                'password' => $this->input->post('password'),
+                'password' => md5($this->input->post('password')),
                 'role' => '2'
             ];
             $this->MyDB->input_dt($user, 'user');
@@ -141,7 +141,6 @@ class Siswa extends CI_Controller
                 'alamat_ortu' => $this->input->post('alamat_ortu'),
                 'tanggal_daftar' => date('Y-m-d h:i:s'),
                 'foto' => $namafile,
-                'bukti_pembayaran' => $buktitf,
                 'no_hp' => $this->input->post('no_hp'),
                 'usia' => date('Y') - date("Y", strtotime($this->input->post('tanggal_lahir')))
             ];
@@ -191,7 +190,6 @@ class Siswa extends CI_Controller
                 'pekerjaan_ortu' => $this->input->post('pekerjaan_ortu'),
                 'alamat_ortu' => $this->input->post('alamat_ortu'),
                 'tanggal_daftar' => date('Y-m-d h:i:s'),
-                // 'bukti_pembayaran' => $buktitf,
                 'no_hp' => $this->input->post('no_hp'),
                 'usia' => date('Y') - date("Y", strtotime($this->input->post('tanggal_lahir')))
             ];

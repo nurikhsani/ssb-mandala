@@ -14,7 +14,7 @@ class Ssb extends CI_Controller
     }
     public function posts()
     {
-        $data['title'] = "Home";
+        $data['judul'] = "Home";
         $jml = $this->db->get('t_kegiatan')->num_rows();
         halaman(site_url('Ssb/posts'), $jml);
         $data['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
@@ -31,6 +31,12 @@ class Ssb extends CI_Controller
         $data['kegiatan'] = $this->Kegiatan_model->show_posts();
         $data['col'] = $this->db->get_where('t_kegiatan', ['id_kegiatan' => $id])->row_array();
 
+        $this->load->view('templateDepan/index', $data);
+    }
+    public function profil()
+    {
+        $data['judul'] = 'Profil';
+        $data['file'] = 'profil';
         $this->load->view('templateDepan/index', $data);
     }
 }

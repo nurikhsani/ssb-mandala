@@ -43,6 +43,7 @@
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Siswa</th>
+                            <th scope="col">Username</th>
                             <th scope="col">Tempat/Tanggal Lahir</th>
                             <th scope="col">Tinggi Badan</th>
                             <th scope="col">Berat Badan</th>
@@ -60,6 +61,7 @@
                             <tr>
                                 <th scope="row"><?= $no ?></th>
                                 <td><?= $t['nama_siswa'] ?></td>
+                                <td><?= $t['username'] ?></td>
                                 <td><?= $t['asal'] . ", " . $t['tanggal_lahir'] ?></td>
                                 <td><?= $t['tinggi_badan'] ?></td>
                                 <td><?= $t['berat_badan'] ?></td>
