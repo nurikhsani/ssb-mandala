@@ -30,12 +30,41 @@ class Nilai_model extends CI_Model
         } else {
             $jenis = 'umum';
         }
-        $query = "SELECT a.id_teknik idteknik, a.nama_teknik, b.*
-                    FROM t_teknik a
-                    LEFT JOIN t_nilai b ON a.id_teknik = b.id_teknik 
+        $query = "SELECT a.id_materi idmateri, a.nama_materi, b.*
+                    FROM t_materi a
+                    LEFT JOIN t_nilai b ON a.id_materi = b.id_materi 
                     AND (b.id_siswa = " . $id . " OR b.id_siswa IS NULL)
                     AND b.waktu='$tahun'
                     WHERE a.jenis = '$jenis'";
+
+        $result = $this->db->query($query)->result_array();
+        return $result;
+    }
+
+    public function nilai_fisik($id, $tahun)
+    {
+        $tahun = $tahun != 0 ? $tahun : date('Y');
+
+        $query = "SELECT a.id_materi idmateri, a.nama_materi, b.*
+                    FROM t_materi a
+                    LEFT JOIN t_nilai b ON a.id_materi = b.id_materi 
+                    AND (b.id_siswa = " . $id . " OR b.id_siswa IS NULL)
+                    AND b.waktu='$tahun'
+                    WHERE a.jenis = 'Fisik'";
+
+        $result = $this->db->query($query)->result_array();
+        return $result;
+    }
+    public function nilai_kepribadian($id, $tahun)
+    {
+        $tahun = $tahun != 0 ? $tahun : date('Y');
+
+        $query = "SELECT a.id_materi idmateri, a.nama_materi, b.*
+                    FROM t_materi a
+                    LEFT JOIN t_nilai b ON a.id_materi = b.id_materi 
+                    AND (b.id_siswa = " . $id . " OR b.id_siswa IS NULL)
+                    AND b.waktu='$tahun'
+                    WHERE a.jenis = 'Kepribadian'";
 
         $result = $this->db->query($query)->result_array();
         return $result;

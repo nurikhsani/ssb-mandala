@@ -29,7 +29,11 @@ class Ssb extends CI_Controller
         $data['judul'] = 'kegiatan';
         $data['file'] = 'show_kegiatan';
         $data['kegiatan'] = $this->Kegiatan_model->show_posts();
-        $data['col'] = $this->db->get_where('t_kegiatan', ['id_kegiatan' => $id])->row_array();
+        $this->db->select('a.*, nama_admin');
+        $this->db->from('t_kegiatan a');
+        $this->db->join('t_admin b', 'a.id_admin=b.id_admin');
+        $this->db->where('a.id_kegiatan =' . $id);
+        $data['col'] = $this->db->get()->row_array();
 
         $this->load->view('templateDepan/index', $data);
     }

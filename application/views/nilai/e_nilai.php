@@ -35,9 +35,9 @@
                     </div>
                 </div>
                 <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align">Teknik</label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">Materi</label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" disabled class="form-control" id="nama" name="Teknik" aria-describedby="emailHelp" value="<?= $tek['nama_teknik']; ?>">
+                        <input type="text" disabled class="form-control" id="nama" name="Teknik" aria-describedby="emailHelp" value="<?= $materi['nama_materi']; ?>">
                     </div>
                 </div>
                 <div class="item form-group">

@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title> <?= $judul ?> </title>
+    <title> <?= $title ?> </title>
 
     <!-- Bootstrap -->
     <link href="<?= base_url() ?>vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -38,26 +38,19 @@
             <div class="animate form login_form">
                 <section class="login_content">
                     <?= $this->session->flashdata('message'); ?>
-                    <form method="POST" action="<?= base_url('Auth') ?>">
-                        <h1>Login Form</h1>
+                    <form method="POST" action="<?= base_url('Auth/forgotPassword') ?>">
+                        <h1>Lupa Password</h1>
                         <div>
-                            <input type="text" class="form-control" name="username" placeholder="Email" />
+                            <input type="text" class="form-control" name="email" placeholder="Email" />
+                            <?= form_error('email', ' <p class="text-danger">', ' </p>') ?>
                         </div>
                         <div>
-                            <input type="password" class="form-control" name="password" placeholder="Password" />
-                        </div>
-                        <div>
-                            <button type="submit" class="btn btn-default submit">Log in</button>
-                            <a class="reset_pass" href="<?= base_url('Auth/forgotPassword'); ?>">Lost your password?</a>
+                            <button type="submit" class="btn btn-default submit">Reset Password</button>
                         </div>
 
                         <div class="clearfix"></div>
 
                         <div class="separator">
-                            <p class="change_link">New to site?
-                                <a href="<?= base_url('pendaftaran'); ?>" class="to_register"> Create Account </a>
-                            </p>
-
                             <div class="clearfix"></div>
                             <br />
 

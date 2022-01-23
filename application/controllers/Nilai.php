@@ -29,6 +29,8 @@ class Nilai extends CI_Controller
         $index['siswa'] = $this->Nilai_model->getSiswa($id);
         // ngambil nilai
         $index['nilai'] = $this->Nilai_model->nilai($id, $index['siswa']->id_posisi, $tahun);
+        $index['nilai_fisik'] = $this->Nilai_model->nilai_fisik($id, $tahun);
+        $index['nilai_kepribadian'] = $this->Nilai_model->nilai_kepribadian($id, $tahun);
 
         $index['list_tahun'] = $this->Nilai_model->get_list_tahun();
         $index['select_tahun'] = $tahun;
@@ -45,7 +47,7 @@ class Nilai extends CI_Controller
         if ($this->form_validation->run() == false) {
             $header['judul'] = 'Tambah Nilai';
             $index['siswa'] = $this->Nilai_model->getSiswa($_GET['idsiswa']);
-            $index['teknik'] = $this->db->get_where('t_teknik', ['id_teknik' => $_GET['idteknik']])->row_array();
+            $index['materi'] = $this->db->get_where('t_materi', ['id_materi' => $_GET['idmateri']])->row_array();
             $index['tahun'] = $_GET['tahun'];
 
             $this->load->view('templates/header', $header);
@@ -55,7 +57,7 @@ class Nilai extends CI_Controller
             // nilai dari dropdown
             $nilai = [
                 'id_siswa' => $this->input->post('id_siswa'),
-                'id_teknik' => $this->input->post('id_teknik'),
+                'id_materi' => $this->input->post('id_materi'),
                 'waktu' => $this->input->post('waktu'),
                 'nilai_1' => $this->input->post('nilai_1'), //dari dropdown
                 'nilai_2' => $this->input->post('nilai_2'), //dari dropdown
@@ -73,7 +75,7 @@ class Nilai extends CI_Controller
         $data['sis'] = $this->db->query('SELECT a.*, b.posisi FROM tabel_siswa a, posisi b 
          WHERE a.id_posisi = b.id_posisi 
         AND id_siswa="' . $data['col']['id_siswa'] . '"')->row_array();
-        $data['tek'] = $this->db->get_where('t_teknik', ['id_teknik' => $data['col']['id_teknik']])->row_array();
+        $data['materi'] = $this->db->get_where('t_materi', ['id_materi' => $data['col']['id_materi']])->row_array();
 
         $this->form_validation->set_rules('nilai_1', 'nilai_1', 'required|trim');
 

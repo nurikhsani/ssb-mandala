@@ -34,10 +34,10 @@
             </div>
             <div class="table-responsive mt-4">
                 <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-                    <thead class=" thead-dark">
+                    <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Nama Teknik</th>
+                            <th scope="col">Kepribadian</th>
                             <th scope="col">Triwulan 1</th>
                             <th scope="col">Triwulan 2</th>
                             <th scope="col">Triwulan 3</th>
@@ -48,10 +48,10 @@
                     <tbody>
                         <?php
                         $no = 1;
-                        foreach ($nilai as $t) { ?>
+                        foreach ($nilai_kepribadian as $t) { ?>
                             <tr>
                                 <th scope="row"><?= $no ?></th>
-                                <td><?= $t['nama_teknik'] ?></td>
+                                <td><?= $t['nama_materi'] ?></td>
                                 <td><?= $t['nilai_1'] ?></td>
                                 <td><?= $t['nilai_2'] ?></td>
                                 <td><?= $t['nilai_3'] ?></td>
@@ -59,7 +59,7 @@
                                 <td>
 
                                     <?php if (!isset($t['nilai_1']) && !isset($t['nilai_2']) && !isset($t['nilai_3']) && !isset($t['nilai_4'])) { ?>
-                                        <a href="<?= base_url('nilai/i_nilai?idsiswa=' . $siswa->id_siswa . '&idteknik=' . $t['idteknik'] . '&tahun=' . $select_tahun); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                        <a href="<?= base_url('nilai/i_nilai?idsiswa=' . $siswa->id_siswa . '&idmateri=' . $t['idmateri'] . '&tahun=' . $select_tahun); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
                                     <?php } else { ?>
                                         <a href="<?= base_url('nilai/update_nilai/' . $t['id_nilai']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
                                     <?php } ?>
@@ -68,6 +68,77 @@
                             </tr>
                         <?php $no++;
                         } ?>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Fisik</th>
+                                <th scope="col">Triwulan 1</th>
+                                <th scope="col">Triwulan 2</th>
+                                <th scope="col">Triwulan 3</th>
+                                <th scope="col">Triwulan 4</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <?php
+                        $no = 1;
+                        foreach ($nilai_fisik as $t) { ?>
+                            <tr>
+                                <th scope="row"><?= $no ?></th>
+                                <td><?= $t['nama_materi'] ?></td>
+                                <td><?= $t['nilai_1'] ?></td>
+                                <td><?= $t['nilai_2'] ?></td>
+                                <td><?= $t['nilai_3'] ?></td>
+                                <td><?= $t['nilai_4'] ?></td>
+                                <td>
+
+                                    <?php if (!isset($t['nilai_1']) && !isset($t['nilai_2']) && !isset($t['nilai_3']) && !isset($t['nilai_4'])) { ?>
+                                        <a href="<?= base_url('nilai/i_nilai?idsiswa=' . $siswa->id_siswa . '&idmateri=' . $t['idmateri'] . '&tahun=' . $select_tahun); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('nilai/update_nilai/' . $t['id_nilai']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <?php } ?>
+                                    <a href="<?= base_url('nilai/del_nilai/' . $t['id_nilai']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Akan Dihapus?')"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php $no++;
+                        } ?>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Teknik</th>
+                                <th scope="col">Triwulan 1</th>
+                                <th scope="col">Triwulan 2</th>
+                                <th scope="col">Triwulan 3</th>
+                                <th scope="col">Triwulan 4</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+
+                        <?php
+                        $no = 1;
+                        foreach ($nilai as $t) { ?>
+                            <tr>
+                                <th scope="row"><?= $no ?></th>
+                                <td><?= $t['nama_materi'] ?></td>
+                                <td><?= $t['nilai_1'] ?></td>
+                                <td><?= $t['nilai_2'] ?></td>
+                                <td><?= $t['nilai_3'] ?></td>
+                                <td><?= $t['nilai_4'] ?></td>
+                                <td>
+
+                                    <?php if (!isset($t['nilai_1']) && !isset($t['nilai_2']) && !isset($t['nilai_3']) && !isset($t['nilai_4'])) { ?>
+                                        <a href="<?= base_url('nilai/i_nilai?idsiswa=' . $siswa->id_siswa . '&idmateri=' . $t['idmateri'] . '&tahun=' . $select_tahun); ?>" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i></a>
+                                    <?php } else { ?>
+                                        <a href="<?= base_url('nilai/update_nilai/' . $t['id_nilai']); ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></a>
+                                    <?php } ?>
+                                    <a href="<?= base_url('nilai/del_nilai/' . $t['id_nilai']); ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin Akan Dihapus?')"><i class="fa fa-trash"></i></a>
+                                </td>
+                            </tr>
+                        <?php $no++;
+                        } ?>
+
                     </tbody>
                 </table>
             </div>

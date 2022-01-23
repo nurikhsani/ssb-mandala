@@ -23,6 +23,7 @@
                 </article>
                 <div class="text-muted text-right border-top">
                     Dibuat pada : <?= $col['tgl_upload'] ?></br>
+                    Posted by : <?= $col['nama_admin'] ?></br>
                 </div>
             </div>
         </div>

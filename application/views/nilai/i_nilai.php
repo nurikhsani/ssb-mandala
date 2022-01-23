@@ -35,13 +35,13 @@
                     </div>
                 </div>
                 <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align">Teknik</label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align">Materi</label>
                     <div class="col-md-6 col-sm-6 ">
-                        <input type="text" disabled class="form-control" id="nama" name="Teknik" aria-describedby="emailHelp" value="<?= $teknik['nama_teknik']; ?>">
+                        <input type="text" disabled class="form-control" id="nama" name="materi" aria-describedby="emailHelp" value="<?= $materi['nama_materi']; ?>">
                     </div>
                 </div>
                 <input type="hidden" class="form-control" id="id_siswa" name="id_siswa" value="<?= $_GET['idsiswa']; ?>">
-                <input type="hidden" class="form-control" id="id_siswa" name="id_teknik" value="<?= $_GET['idteknik']; ?>">
+                <input type="hidden" class="form-control" id="id_siswa" name="id_materi" value="<?= $_GET['idmateri']; ?>">
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align">Triwulan 1</label>
                     <div class="col-md-6 col-sm-6">

@@ -46,7 +46,7 @@
                         <div class="col-md-5 col-sm-5 " style="border:0px solid #e5e5e5;">
 
                             <h3 class="prod_title"><?= $col['nama_kegiatan']; ?></h3>
-
+                            <p>Posted By : <?= $col['nama_admin']; ?></p><br />
                             <p><?= $col['deskripsi']; ?></p>
                             <br />
 

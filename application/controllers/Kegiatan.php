@@ -62,6 +62,7 @@ class Kegiatan extends CI_Controller
                 'tanggal' => $this->input->post('tanggal'),
                 'foto_kegiatan' => $namafile,
                 'tgl_upload' => $time,
+                'id_admin' => 1,
                 'deskripsi' => $this->input->post('deskripsi')
 
             ];
@@ -80,7 +81,12 @@ class Kegiatan extends CI_Controller
     {
         $header['judul'] = 'Detail Kegiatan';
 
-        $data['col'] = $this->db->get_where('t_kegiatan', ['id_kegiatan' => $id])->row_array();
+        $this->db->select('a.*, nama_admin');
+        $this->db->from('t_kegiatan a');
+        $this->db->join('t_admin b', 'a.id_admin=b.id_admin');
+        $this->db->where('a.id_kegiatan =' . $id);
+        $data['col'] = $this->db->get()->row_array();
+
         $this->load->view('templates/header', $header);
         $this->load->view('kegiatan/detail_kegiatan', $data);
         $this->load->view('templates/footer');
